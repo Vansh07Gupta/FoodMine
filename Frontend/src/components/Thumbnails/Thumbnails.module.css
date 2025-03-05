@@ -1,0 +1,106 @@
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  margin: 0.5rem;
+}
+
+.list li a {
+  height: 22.5rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  color: #e72929;
+  transition: transform 0.2s ease-in-out;
+}
+
+.list li a:hover {
+  transform: scale(1.03);
+}
+
+.image {
+  object-fit: cover;
+  height: 14.5rem;
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.content {
+  padding: 0.5rem 1rem;
+  position: relative;
+  height: 7rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.favorite {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.favorite.not {
+  color: grey;
+}
+
+.favorite:hover {
+  color: red;
+}
+
+.stars {
+  margin: 0.5rem 0;
+}
+
+.product_item_footer {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0.5rem 0;
+  position: relative; 
+}
+
+.cook_time {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; 
+  flex: 1; 
+}
+
+.cook_time span {
+  font-size: 1rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #414141;
+  background-color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
