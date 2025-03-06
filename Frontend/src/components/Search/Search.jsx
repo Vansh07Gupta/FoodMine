@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import classes from './search.module.css';
 
@@ -10,6 +10,9 @@ export default function Search() {
   const search = async () => {
     term ? navigate(`/search/${term}`) : navigate('/');
   };
+  useEffect(() => {
+    setTerm(searchTerm ?? '');
+  }, [searchTerm]);
 
   return (
     <div className={classes.container}>

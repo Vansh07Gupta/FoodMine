@@ -4,6 +4,7 @@ import Thumbnails from '../../Thumbnails/Thumbnails';
 import { search } from '../../../Service/FoodService';
 import { useParams } from 'react-router-dom';
 import Search from '../../Search/Search';
+import NotFound from '../../NotFound/NotFound';
 const initialState = { foods: []};
 
 const reducer = (state, action) => {
@@ -27,6 +28,7 @@ const Homepage = () => {
     return (
         <>
             <Search/>
+            {foods.length === 0 && <NotFound/>}
              <Thumbnails foods={foods} />
         </>
     );
