@@ -2,17 +2,13 @@ import React from 'react';
 import classes from './Header.module.css';
 import { Link } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
+import { useAuth } from '../hooks/useAuth';
 
 const Header = () => {
-    const user = {
-        name: 'Vansh', 
-    };
+    const {user,logout} = useAuth();
 
     const {cart} = useCart();
 
-    const logout = () => {
-        console.log("User logged out");
-    };
 
     return (
         <header className={classes.header}>
