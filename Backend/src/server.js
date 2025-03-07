@@ -1,9 +1,14 @@
-import express from 'express';  // ✅ Use ES Modules only
+import dotenv from 'dotenv';  
+dotenv.config();
+import express from 'express'; 
 import cors from 'cors';
 import foodRouter from './Routers/food.router.js';
 import userRouter from './Routers/user.router.js';
 
-const app = express();  // ✅ No duplicate declaration
+const app = express(); 
+
+import { dbconnect } from './config/database.config.js';
+dbconnect();
 
 app.use(express.json());
 
