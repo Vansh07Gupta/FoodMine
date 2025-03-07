@@ -13,7 +13,6 @@ export default function Thumbnails({ foods }) {
               src={`${food.imageUrl}`}
               alt={food.name}
             />
-
             <div className={classes.content}>
               <div className={classes.name}>{food.name}</div>
               <span
@@ -24,7 +23,6 @@ export default function Thumbnails({ foods }) {
                 ❤
               </span>
               <div className={classes.stars}>
-                {/* <StarRating stars={food.stars}/> */}
               </div>
               <div className={classes.product_item_footer}>
                 <div className={classes.cook_time}>

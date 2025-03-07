@@ -1,13 +1,18 @@
-import sample_foods from "../Data";
+import axios from "axios";
 
-export const getall = async () => sample_foods
+const BASE_URL = "http://localhost:5000/api/food"; // Update this with your backend URL
+
+export const getall = async () => {
+  const { data } = await axios.get(`${BASE_URL}`);  
+  return data;
+};
 
 export const search = async (searchTerm) => {
-    return sample_foods.filter(item =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  };
-  export const getById = async id => {
-    return sample_foods.find(item => item.id === id);
-  }
-  
+  const { data } = await axios.get(`${BASE_URL}/search/${searchTerm}`); 
+  return data;
+};
+
+export const getById = async (foodId) => {
+  const { data } = await axios.get(`${BASE_URL}/${foodId}`); 
+  return data;
+};

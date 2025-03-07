@@ -5,6 +5,8 @@ import { search } from '../../../Service/FoodService';
 import { useParams } from 'react-router-dom';
 import Search from '../../Search/Search';
 import NotFound from '../../NotFound/NotFound';
+
+
 const initialState = { foods: []};
 
 const reducer = (state, action) => {
@@ -21,7 +23,8 @@ const Homepage = () => {
     const { foods } = state;
     const { searchTerm } = useParams();
     useEffect(() => {
-      const loadFoods = searchTerm ? search(searchTerm) : getall(); 
+      const loadFoods = searchTerm ? search(searchTerm) : getall(); // if there is a search term, call search function
+      // else call getall function 
       loadFoods.then(foods => dispatch({ type: 'FOODS_LOADED', payload: foods }));
     }, [searchTerm]);
 

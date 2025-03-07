@@ -5,7 +5,7 @@ import { useCart } from '../hooks/useCart';
 
 const Header = () => {
     const user = {
-        name: 'John Doe', 
+        name: 'Vansh', 
     };
 
     const {cart} = useCart();
