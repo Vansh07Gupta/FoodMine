@@ -1,6 +1,6 @@
 export const sample_foods = [
     {
-        id: "1",
+        _id: "1",
         name: "Paneer Butter Masala",
         cookTime: "30 min",
         favourite: true,
@@ -11,7 +11,7 @@ export const sample_foods = [
         tags: ["Vegetarian", "Curry", "North Indian"]
     },
     {
-        id: "2",
+        _id: "2",
         name: "Chicken Biryani",
         cookTime: "45 min",
         favourite: true,
@@ -21,7 +21,7 @@ export const sample_foods = [
         tags: ["Non-Vegetarian", "Rice", "Hyderabadi"]
     },
     {
-        id: "3",
+        _id: "3",
         name: "Masala Dosa",
         cookTime: "20 min",
         favourite: false,
@@ -31,7 +31,7 @@ export const sample_foods = [
         tags: ["Vegetarian", "South Indian", "Breakfast"]
     },
     {
-        id: "4",
+        _id: "4",
         name: "Pani Puri",
         cookTime: "15 min",
         favourite: true,
@@ -41,7 +41,7 @@ export const sample_foods = [
         tags: ["Vegetarian", "Street Food", "Snack"]
     },
     {
-        id: "5",
+        _id: "5",
         name: "Dal Tadka",
         cookTime: "25 min",
         favourite: false,
@@ -51,7 +51,7 @@ export const sample_foods = [
         tags: ["Vegetarian", "Curry", "North Indian"]
     },
     {
-        id: "6",
+        _id: "6",
         name: "Dal Tadka",
         cookTime: "25 min",
         favourite: false,
@@ -61,7 +61,7 @@ export const sample_foods = [
         tags: ["Vegetarian", "Curry", "North Indian"]
     },
     {
-        id: "7",
+        _id: "7",
         name: "Dal Tadka",
         cookTime: "25 min",
         favourite: false,
@@ -74,7 +74,7 @@ export const sample_foods = [
 
 export const sample_users = [
     {
-        id: "1",
+        _id: "1",
         name: "John Doe",
         email: "john@gmail.com",
         password: "12345",
@@ -82,7 +82,7 @@ export const sample_users = [
         isAdmin: false
     },
     {
-        id: "2",
+        _id: "2",
         name: "Jane Doe",
         email: "jane@gmail.com",
         password: "12345",

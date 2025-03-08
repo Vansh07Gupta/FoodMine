@@ -7,9 +7,11 @@ import CartProvider from './hooks/useCart'
 import { AuthProvider } from './hooks/useAuth'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { LoadingProvider } from './hooks/useLoading'
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
+    <LoadingProvider>
     <AuthProvider>
     <CartProvider>
         <App/>
@@ -27,6 +29,8 @@ createRoot(document.getElementById('root')).render(
             />
     </CartProvider>
     </AuthProvider>
+    </LoadingProvider>
+
 
     
     </BrowserRouter>

@@ -8,7 +8,6 @@ import bcrypt from 'bcryptjs'
 const PASSWORD_HASH_SALT_ROUNDS = 10;
 
 
-
 export const dbconnect = async () => {
   try {
     await connect(process.env.MONGO_URI);

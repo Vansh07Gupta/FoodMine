@@ -29,9 +29,9 @@ export default function FoodPage() {
       ) : (
         <div className={classes.container}>
           <img
-            className={classes.image}
-            src={`${food.imageUrl}`}
-            alt={food.name}
+          className={classes.image}
+          src={`/food/${food.imageUrl.split('/').pop()}`} 
+          alt={food.name}
           />
           <div className={classes.details}>
             <div className={classes.header}>

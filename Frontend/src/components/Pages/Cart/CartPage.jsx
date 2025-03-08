@@ -19,8 +19,11 @@ export default function CartPage() {
           <ul className={classes.list}>
             {cart.items.map((item) => (
               <li key={item.food.id}>
-                <div>
-                  <img src={`${item.food.imageUrl}`} alt={item.food.name} />
+                <div> 
+                  <img 
+                    src={`/food/${item.food.imageUrl.split('/').pop()}`} 
+                    alt={item.food.name}
+                  />
                 </div>
                 <div>
                   <Link to={`/food/${item.food.id}`}>{item.food.name}</Link>
@@ -33,16 +36,11 @@ export default function CartPage() {
                       changeQuantity(item, Number(e.target.value))
                     }
                   >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
+                    {[...Array(10).keys()].map((num) => (
+                      <option key={num + 1} value={num + 1}>
+                        {num + 1}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

@@ -6,6 +6,7 @@ import foodRouter from './Routers/food.router.js';
 import userRouter from './Routers/user.router.js';
 
 const app = express(); 
+app.use(express.static('public'));
 
 import { dbconnect } from './config/database.config.js';
 dbconnect();

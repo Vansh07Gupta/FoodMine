@@ -4,7 +4,7 @@ export const FoodSchema = new Schema(
   {
     name: { type: String, required: true },
     price: { type: Number, required: true },
-    favorite: { type: Boolean, default: false },
+    favourite: { type: Boolean, default: false },
     imageUrl: { type: String, required: true },
     cookTime: { type: String, required: true },
   },

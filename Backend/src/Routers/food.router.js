@@ -1,26 +1,32 @@
 import {Router} from 'express';
-import sample_foods from '../Data.js';
+import { FoodModel } from '../models/food.model.js';
+import handler from 'express-async-handler';
 
 const foodRouter = Router();
 
-foodRouter.get('/', (req, res) => {
-    res.send(sample_foods);
-});
+foodRouter.get('/', handler(async (req, res) => {
+  const foods = await FoodModel.find({})
+  res.send(foods);
+}));
+  
+foodRouter.get(
+  '/search/:searchTerm',
+  handler(async (req, res) => {   
+    const { searchTerm } = req.params;
+    const searchRegex = new RegExp(searchTerm, 'i');
 
-foodRouter.get('/search/:searchTerm', (req, res) => {
-    const {searchTerm} = req.params;
-    const foods = sample_foods.filter(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      res.send(foods);
-})
+    const foods = await FoodModel.find({ name: { $regex: searchRegex } });
+    res.send(foods);
+  })
+);
+
 
 foodRouter.get('/:foodId',
-     (req, res) => {
-      const { foodId } = req.params;
-      const food =  sample_foods.find(item => item.id === foodId);
-      res.send(food);
-    }
-  );
-
+  handler(async (req, res) => {
+    console.log(req.params); 
+    const { foodId } = req.params;
+    const food = await FoodModel.findById(foodId);
+    res.send(food);
+  }));
+  
 export default foodRouter;
