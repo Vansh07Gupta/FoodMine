@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useSearchParams ,Link} from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import Title from '../../Title/Title';
-import Input from '../../Input/input'; 
+import Input from '../../Input/Input'; 
 import classes from './LoginPage.module.css';
 import { EMAIL } from '../../patterns/constant';
 import Button from '../../Button/Button';

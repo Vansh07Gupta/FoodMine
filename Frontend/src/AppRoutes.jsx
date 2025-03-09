@@ -5,6 +5,8 @@ import FoodPage from "./components/Pages/Food/FoodPage";
 import CartPage from "./components/Pages/Cart/CartPage";
 import LoginPage from "./components/Pages/Login/LoginPage";
 import Register from "./components/Pages/Register/Register";
+import AuthRoute from "./components/AuthRoute/AuthRoute";
+import CheckoutPage from "./components/Pages/Checkout/CheckoutPage";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -14,6 +16,12 @@ const AppRoutes = () => {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/checkout" 
+      element={
+      <AuthRoute>
+        <CheckoutPage/>
+      </AuthRoute>
+      } />
 
     </Routes>
   );
