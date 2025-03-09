@@ -30,7 +30,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    await createOrder({ ...order, name: data.name, address: data.address });
+    await createOrder({ ...order, name: data.name, address: data.address }, user.token);
     navigate('/payment');
   };
 
