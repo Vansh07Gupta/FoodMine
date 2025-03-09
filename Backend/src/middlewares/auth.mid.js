@@ -4,7 +4,7 @@ const authMid = (req, res, next) => {
 //   console.log('Auth Middleware Hit'); 
 
   const authHeader = req.headers.authorization;
-  console.log('🔍 Incoming Auth Header:', authHeader); 
+//   console.log('🔍 Incoming Auth Header:', authHeader); 
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     // console.log('🚨 No token found');
