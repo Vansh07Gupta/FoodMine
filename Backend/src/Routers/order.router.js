@@ -10,8 +10,8 @@ router.use(authMid);
 router.post(
   '/create',
   handler(async (req, res) => {
-    console.log('📌 Order creation endpoint hit'); 
-    console.log('🔍 User:', req.user);
+    // console.log('📌 Order creation endpoint hit'); 
+    // console.log('🔍 User:', req.user);
 
     if (!req.user || !req.user.id) {
       console.log('🚨 Error: User not found in request');

@@ -9,7 +9,7 @@ axios.interceptors.request.use(
       req.headers['Authorization'] = `Bearer ${token}`;
     }
 
-    console.log('🔍 Axios Request Headers:', req.headers);  // ✅ Debugging log
+    // console.log('🔍 Axios Request Headers:', req.headers); 
 
     return req;
   },
