@@ -3,32 +3,24 @@ import handler from 'express-async-handler';
 import authMid from '../middlewares/auth.mid.js';
 import { OrderModel } from '../models/order.model.js';
 import { OrderStatus } from '../constants/orderStatus.js';
+import { UserModel } from '../models/user.model.js';
 
 const router = Router();
-router.use(authMid);  // Ensure all routes require authentication
-
-/** 
- * 📌 CREATE NEW ORDER 
- */
+router.use(authMid);  
 router.post(
   '/create',
   handler(async (req, res) => {
-    console.log('📌 Order creation endpoint hit'); 
-    console.log('🔍 User:', req.user);
 
     if (!req.user || !req.user.id) {
-      console.log('🚨 Error: User not found in request');
       return res.status(401).send('Unauthorized: User not authenticated');
     }
 
     const order = req.body;
 
     if (!order.items || order.items.length === 0) {
-      console.log('🚨 Error: Cart is empty');
       return res.status(400).send('Cart Is Empty!');
     }
 
-    // Delete any existing NEW order before creating a new one
     await OrderModel.deleteOne({
       user: req.user.id,
       status: OrderStatus.NEW,
@@ -37,14 +29,12 @@ router.post(
     const newOrder = new OrderModel({ ...order, user: req.user.id });
     await newOrder.save();
 
-    console.log('✅ Order created successfully:', newOrder);
+    // console.log('✅ Order created successfully:', newOrder);
     res.send(newOrder);
   })
 );
 
-/** 
- * 📌 FETCH NEW ORDER FOR CURRENT USER
- */
+
 router.get(
   '/newOrderForCurrentUser',
   handler(async (req, res) => {
@@ -62,14 +52,11 @@ router.get(
   })
 );
 
-/** 
- * 📌 PROCESS PAYMENT 
- */
+
 router.put(
   '/pay',
   handler(async (req, res) => {
     const { paymentId } = req.body;
-    console.log("🔍 Processing payment for order... Payment ID:", paymentId);
 
     const order = await getNewOrderForCurrentUser(req);
 
@@ -82,17 +69,36 @@ router.put(
     order.status = OrderStatus.PAYED;
     await order.save();
 
-    console.log("✅ Payment successful! Order ID:", order._id);
+    // console.log("✅ Payment successful! Order ID:", order._id);
     
-    sendEmailReceipt(order);
+  
 
     res.send(order._id);
   })
 );
 
-/**
- * 📌 HELPER FUNCTION: Get new order for current user
- */
+router.get(
+  '/track/:orderId',
+  handler(async (req, res) => {
+    const { orderId } = req.params;
+    const user = await UserModel.findById(req.user.id);
+
+    const filter = {
+      _id: orderId,
+    };
+
+    if (!user.isAdmin) {
+      filter.user = user._id;
+    }
+
+    const order = await OrderModel.findOne(filter);
+
+    if (!order) return res.send(UNAUTHORIZED);
+
+    return res.send(order);
+  })
+);
+
 const getNewOrderForCurrentUser = async (req) => {
   console.log("🔍 Looking for order with status NEW for user:", req.user.id);
 
