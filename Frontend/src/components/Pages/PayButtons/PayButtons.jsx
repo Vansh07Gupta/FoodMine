@@ -1,74 +1,52 @@
-import React, { useEffect } from 'react';
-import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-import { useLoading } from '../../../hooks/useLoading';
-import { useNavigate } from 'react-router-dom';
-import { useCart } from '../../../hooks/useCart';
-import { toast } from 'react-toastify';
-import { pay } from '../../../Service/orderService';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../hooks/useCart";
+import { toast } from "react-toastify";
+import { pay } from "../../../Service/orderService";
+import classes from "./payButton.module.css"
 
 const PayButtons = ({ order }) => {
-  return (
-    <PayPalScriptProvider
-      options={{
-        clientId: 'AUbCsUIPGnRanWCE00QvJFadSfq3Q9rpXBIEwlMpJjEbU2SwklA4BaJ0qE3AismKs9LoIT7o4S67c17G',
-        currency: 'USD',
-      }}
-    >
-      <Buttons order={order} />
-    </PayPalScriptProvider>
-  );
-};
-
-function Buttons({ order }) {
   const { clearCart } = useCart();
   const navigate = useNavigate();
-  const [{ isPending }] = usePayPalScriptReducer();
-  const { showLoading, hideLoading } = useLoading();
 
-  useEffect(() => {
-    if (isPending) {
-      showLoading();
-    } else {
-      hideLoading();
+  const handlePayment = async () => {
+    if (!order || !order.totalPrice) {
+      toast.error("Order details are missing!");
+      return;
     }
-  }, [isPending]); 
 
-  const createOrder = (data, actions) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            currency_code: 'USD',
-            value: order.totalPrice,
-          },
-        },
-      ],
-    });
+    const options = {
+      key: "rzp_test_g0Ycj9hUjbjJjR",
+      amount: order.totalPrice * 100, 
+      currency: "INR",
+      name: "Your Company",
+      description: "Order Payment",
+      image: "/vite.svg",
+      handler: async function (response) {
+        try {
+          const orderId = await pay(response.razorpay_payment_id);
+          clearCart();
+          toast.success("Payment Successful");
+          navigate(order?._id ? `/track/${order._id}` : "/orders");
+        
+        } catch (error) {
+          toast.error("Payment Save Failed");
+        }
+      },
+      prefill: {
+        name: order.name, 
+        email: order.email, 
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const razorpay = new window.Razorpay(options);
+    razorpay.open();
   };
 
-  const onApprove = async (data, actions) => {
-    try {
-      const payment = await actions.order.capture();
-      const orderId = await pay(payment.id);
-      clearCart();
-      toast.success('Payment Saved Successfully');
-      navigate('/track/' + orderId);
-    } catch (error) {
-      toast.error('Payment Save Failed'); 
-    }
-  };
-
-  const onError = (err) => {
-    toast.error('Payment Failed'); 
-  };
-
-  return (
-    <PayPalButtons
-      createOrder={createOrder}
-      onApprove={onApprove}
-      onError={onError}
-    />
-  );
-}
+  return <button className={classes.payButton} onClick={handlePayment}>Pay with Razorpay</button>;
+};
 
 export default PayButtons;
