@@ -38,7 +38,6 @@ router.post(
 router.get(
   '/newOrderForCurrentUser',
   handler(async (req, res) => {
-    console.log("🔍 Fetching new order for user:", req.user?.id);  
 
     const order = await getNewOrderForCurrentUser(req);
 
@@ -70,9 +69,6 @@ router.put(
     await order.save();
 
     // console.log("✅ Payment successful! Order ID:", order._id);
-    
-  
-
     res.send(order._id);
   })
 );
@@ -93,14 +89,34 @@ router.get(
 
     const order = await OrderModel.findOne(filter);
 
-    if (!order) return res.send(UNAUTHORIZED);
+    if (!order) return res.send(401);
 
     return res.send(order);
   })
 );
 
+
+router.get('/allstatus', (req, res) => {
+  const allStatus = Object.values(OrderStatus);
+  res.send(allStatus);
+});
+
+router.get(
+  '/:status?',
+  handler(async (req, res) => {
+    const status = req.params.status;
+    const user = await UserModel.findById(req.user.id);
+    const filter = {};
+
+    if (!user.isAdmin) filter.user = user._id;
+    if (status) filter.status = status;
+
+    const orders = await OrderModel.find(filter).sort('-createdAt');
+    res.send(orders);
+  })
+);
+
 const getNewOrderForCurrentUser = async (req) => {
-  console.log("🔍 Looking for order with status NEW for user:", req.user.id);
 
   const order = await OrderModel.findOne({
     user: req.user.id,
