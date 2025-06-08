@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { trackOrderById } from '../../../Service/orderService';
 import NotFound from '../../NotFound/NotFound';
 import { useEffect } from 'react';
@@ -18,7 +18,8 @@ const OrderTrackPage = () => {
           trackOrderById(orderId).then(order => {
             setOrder(order);
           });
-      }, []);
+      }, [orderId]);
+
       if (!orderId)
         return <NotFound message="Order Not Found" linkText="Go To Home Page" />;
 
@@ -60,11 +61,18 @@ const OrderTrackPage = () => {
               <Map location={order.addressLatLng} readonly={true} />
             </div>
     
-            {order.status === 'NEW' && (
-              <div className={classes.payment}>
-                <Link to="/payment">Go To Payment</Link>
-              </div>
-            )}
+            <div className={classes.actions}>
+              {order.status === 'NEW' && (
+                <Link to="/payment" className={classes.paymentLink}>
+                  Go To Payment
+                </Link>
+              )}
+              {order.status === 'PAYED' && (
+                <Link to="/" className={classes.homeLink}>
+                  Return to Homepage
+                </Link>
+              )}
+            </div>
           </div>
         )
       );

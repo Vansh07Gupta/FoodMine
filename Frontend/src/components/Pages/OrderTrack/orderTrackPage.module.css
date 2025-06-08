@@ -27,16 +27,41 @@
     width: 20%;
   }
   
-  .payment {
+  .actions {
     width: 100%;
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
   
-  .payment a {
-    background-color: #ff4d4d;
-    color: white;
+  .paymentLink,
+  .homeLink {
     padding: 0.8rem 5rem;
     border-radius: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .paymentLink {
+    background-color: #ff4d4d;
+    color: white;
+  }
+
+  .paymentLink:hover {
+    background-color: #ff3333;
+    transform: translateY(-2px);
+  }
+
+  .homeLink {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .homeLink:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
   }

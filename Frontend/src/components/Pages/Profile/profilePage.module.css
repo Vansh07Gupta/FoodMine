@@ -1,11 +1,255 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  max-width: 1500px;
+  margin: 2rem auto;
+  padding: 0 3rem;
+}
+
+.details {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  padding: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.details:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profileInfo {
+  background: #eef2f7;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+  border: 1px solid #dee2e6;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.label {
+  font-weight: 700;
+  color: #343a40;
+  min-width: 120px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.value {
+  color: #495057;
+  font-size: 1.2rem;
+  word-break: break-all;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 4rem 0;
+  color: #888;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.divider span {
+  padding: 0 2rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #6c757d;
+}
+
+.details form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.details h1 {
+  color: #333;
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.details input {
+  width: 100%;
+  padding: 1.2rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details input:focus {
+  border-color: #007d6a;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 125, 106, 0.3);
+}
+
+.details button {
+  background-color: #009e84;
+  color: white;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.details button:hover:not(:disabled) {
+  background-color: #007d6a;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details button:active:not(:disabled) {
+  transform: translateY(0);
+  background-color: #006355;
+}
+
+.details button:disabled {
+  background-color: #e9ecef;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.8;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .details {
+    padding: 3rem;
+    max-width: 700px;
+  }
+
+  .details h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .details {
+    padding: 2.5rem;
+    max-width: 600px;
+  }
+
+  .details h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+  .details {
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .details h1 {
+    font-size: 2rem;
+  }
+
+  .profileInfo {
+    padding: 1.5rem;
+  }
+
+  .infoItem {
+    gap: 1rem;
+  }
+
+  .label {
+    min-width: 80px;
+  }
+
+  .value {
+    font-size: 1.1rem;
+  }
+
+  .divider {
+    margin: 3rem 0;
+  }
+
+  .details form {
+    gap: 2rem;
     margin-top: 3rem;
   }
-  
-  .details {
-    width: 28rem;
+
+  .details input {
+    padding: 1rem;
+    font-size: 1rem;
   }
+
+  .details button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .details {
+    padding: 1.5rem;
+  }
+
+  .details h1 {
+    font-size: 1.75rem;
+  }
+
+  .details input {
+    padding: 0.9rem;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .label {
+    min-width: auto;
+  }
+
+  .value {
+    font-size: 1rem;
+  }
+
+  .divider span {
+    padding: 0 1rem;
+    font-size: 0.8rem;
+  }
+
+  .details button {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}

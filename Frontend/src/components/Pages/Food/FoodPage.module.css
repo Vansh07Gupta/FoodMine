@@ -1,79 +1,307 @@
-/* FoodPage.module.css */
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .image {
-    width: 400px;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  
-  .details {
-    flex: 1;
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  background-image: url('/register.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add overlay for better text readability */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Add subtle pattern overlay */
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above the overlays */
+.container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .container {
     flex-direction: column;
-    gap: 20px;
-  }
-  
-  .header {
-    display: flex;
+    padding: 40px 20px;
+    gap: 40px;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: space-between;
   }
-  
-  .name {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
+}
+
+.image {
+  width: 500px;
+  max-width: 45vw;
+  height: 400px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.image:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  border-color: rgba(52, 152, 219, 0.3);
+}
+
+@media (max-width: 768px) {
+  .image {
+    width: 90vw;
+    max-width: 400px;
+    height: 300px;
   }
-  
-  .favorite {
-    font-size: 32px;
-    color: #e74c3c;
-    cursor: pointer;
-  }
-  
-  .not {
-    opacity: 0.4;
-  }
-  
-  .cook_time {
-    font-size: 20px;
-    color: #555;
-  }
-  
-  .price {
-    font-size: 26px;
-    font-weight: bold;
-    color: #2ecc71;
-  }
-  
+}
+
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 500px;
+  min-height: 400px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.name {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.favorite {
+  font-size: 2.2rem;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(231, 76, 60, 0.1);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.favorite:hover {
+  color: #c0392b;
+  background: rgba(231, 76, 60, 0.2);
+  transform: scale(1.1);
+}
+
+.favorite.not {
+  opacity: 0.3;
+  background: rgba(149, 165, 166, 0.1);
+  color: #95a5a6;
+}
+
+.favorite.not:hover {
+  opacity: 0.6;
+  background: rgba(149, 165, 166, 0.15);
+  color: #7f8c8d;
+}
+
+.cook_time {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 500;
+  background: rgba(108, 117, 125, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #27ae60;
+  text-shadow: 0 1px 2px rgba(39, 174, 96, 0.2);
+  margin: 8px 0;
+}
+
+.foodbutton {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border: none;
+  color: #ffffff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  align-self: flex-start;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.foodbutton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.foodbutton:hover::before {
+  left: 100%;
+}
+
+.foodbutton:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #1f5582 100%);
+  box-shadow: 0 8px 24px rgba(41, 128, 185, 0.4);
+  transform: translateY(-3px);
+}
+
+.foodbutton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(41, 128, 185, 0.4);
+}
+
+/* Accessibility improvements */
+.foodbutton:focus {
+  outline: 3px solid rgba(52, 152, 219, 0.5);
+  outline-offset: 2px;
+}
+
+/* Make sure button focus is visible for accessibility */
+.favorite:focus {
+  outline: 2px solid rgba(231, 76, 60, 0.5);
+  outline-offset: 2px;
+}
+
+/* General improvements */
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Add smooth animations for better UX */
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .image,
+  .favorite,
   .foodbutton {
-    padding: 15px 30px;
-    background-color: #3498db;
-    border: none;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    align-self: flex-start;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+    transition: none;
   }
   
-  button:hover {
-    background-color: #2980b9;
+  .image:hover {
+    transform: none;
   }
   
+  .foodbutton:hover {
+    transform: none;
+  }
+}
+
+.foodInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.infoIcon {
+  font-size: 1.2rem;
+  background: rgba(52, 152, 219, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.freshNote {
+  font-size: 0.85rem;
+  color: #3498db;
+  font-style: italic;
+  margin-top: 15px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .foodInfo {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

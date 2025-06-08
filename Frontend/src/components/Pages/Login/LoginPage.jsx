@@ -27,39 +27,44 @@ const LoginPage = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.details}>
-        <Title title="Login" />
-        <form onSubmit={handleSubmit(submit)} noValidate>
-          <Input
-            type="email"
-            label="Email"
-            {...register('email', {
-              required: true,
-              pattern: EMAIL,
-            })}
-            error={errors.email}
-          />
-
-          <Input
-            type="password"
-            label="Password"
-            {...register('password', {
-              required: true,
-            })}
-            error={errors.password}
-          />
-
-          <Button type="submit" text="Login" />
-          <div className={classes.register}>
-            New user? &nbsp;
-            <Link to={`/register${returnUrl ? '?returnUrl=' + returnUrl : ''}`}>
-              Register here
-            </Link>
-          </div>
-        </form>
+      <div className={classes.left}></div>
+  
+      <div className={classes.right}>
+        <div className={classes.details}>
+          <Title title="Login" />
+          <form onSubmit={handleSubmit(submit)} noValidate>
+            <Input
+              type="email"
+              label="Email"
+              {...register('email', {
+                required: true,
+                pattern: EMAIL,
+              })}
+              error={errors.email}
+            />
+  
+            <Input
+              type="password"
+              label="Password"
+              {...register('password', {
+                required: true,
+              })}
+              error={errors.password}
+            />
+  
+            <Button type="submit" text="Login" />
+            <div className={classes.register}>
+              New user? &nbsp;
+              <Link to={`/register${returnUrl ? '?returnUrl=' + returnUrl : ''}`}>
+                Register here
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
+  
 };
 
 export default LoginPage;

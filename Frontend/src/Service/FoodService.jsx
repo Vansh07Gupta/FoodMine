@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/food"; // Update this with your backend URL
+const BASE_URL = "http://localhost:5000/api/food"; 
 
 export const getall = async () => {
   const { data } = await axios.get(`${BASE_URL}`);  

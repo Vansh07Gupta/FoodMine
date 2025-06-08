@@ -39,9 +39,10 @@ export default function Map({ readonly, location, onChange }) {
 
 function FindButtonAndMarker({ readonly, location, onChange }) {
   const [position, setPosition] = useState(location);
+  const [isLocating, setIsLocating] = useState(false);
 
   useEffect(() => {
-    if (readonly) {
+    if (readonly && position) {
       map.setView(position, 13);
       return;
     }
@@ -55,9 +56,12 @@ function FindButtonAndMarker({ readonly, location, onChange }) {
     locationfound(e) {
       setPosition(e.latlng);
       map.flyTo(e.latlng, 13);
+      setIsLocating(false);
+      toast.success('Location found!');
     },
     locationerror(e) {
-      toast.error(e.message);
+      setIsLocating(false);
+      toast.error('Unable to find your location. Please check your browser settings and try again.');
     },
   });
 
@@ -68,15 +72,26 @@ function FindButtonAndMarker({ readonly, location, onChange }) {
     popupAnchor: [0, -41],
   });
 
+  const handleLocate = () => {
+    setIsLocating(true);
+    map.locate({
+      setView: true,
+      maxZoom: 16,
+      timeout: 10000,
+      enableHighAccuracy: true
+    });
+  };
+
   return (
     <>
       {!readonly && (
         <button
           type="button"
           className={classes.find_location}
-          onClick={() => map.locate()}
+          onClick={handleLocate}
+          disabled={isLocating}
         >
-          Find My Location
+          {isLocating ? 'Locating...' : 'Find My Location'}
         </button>
       )}
 

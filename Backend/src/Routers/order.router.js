@@ -28,8 +28,6 @@ router.post(
 
     const newOrder = new OrderModel({ ...order, user: req.user.id });
     await newOrder.save();
-
-    // console.log('✅ Order created successfully:', newOrder);
     res.send(newOrder);
   })
 );
@@ -67,8 +65,6 @@ router.put(
     order.paymentId = paymentId;
     order.status = OrderStatus.PAYED;
     await order.save();
-
-    // console.log("✅ Payment successful! Order ID:", order._id);
     res.send(order._id);
   })
 );
@@ -89,7 +85,7 @@ router.get(
 
     const order = await OrderModel.findOne(filter);
 
-    if (!order) return res.send(401);
+    if (!order) return res.sendStatus(401);
 
     return res.send(order);
   })

@@ -1,23 +1,44 @@
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 3rem;
-  }
-  
-  .details {
-    width: 25rem;
-  }
-  
-  .details form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  height: 100vh;
+  width: 100%;
+  background-image: url('/register.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent overflow scrolling */
+}
+
+.details {
+  background: rgba(255, 255, 255, 0.95); /* Soft white with slight transparency */
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+}
+
+.details form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.login a {
+  color: #e63946;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login a:hover {
+  text-decoration: underline;
+}

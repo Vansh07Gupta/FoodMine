@@ -1,0 +1,104 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 40px 0 20px;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footerSection h3 {
+  color: #3498db;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footerSection p {
+  color: #b3b3b3;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.footerSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerSection ul li {
+  margin-bottom: 10px;
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+.footerSection ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerSection ul li a:hover {
+  color: #3498db;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.socialLinks a {
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: #3498db;
+}
+
+.footerBottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #333;
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+.foodPageNote {
+  margin-top: 10px;
+  font-style: italic;
+  color: #3498db;
+  font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footerSection {
+    text-align: center;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+} 

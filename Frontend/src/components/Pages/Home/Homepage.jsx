@@ -5,8 +5,9 @@ import { search } from '../../../Service/FoodService';
 import { useParams } from 'react-router-dom';
 import Search from '../../Search/Search';
 import NotFound from '../../NotFound/NotFound';
-
-
+import Footer from '../../Footer/Footer';
+import ChatBot from '../../ChatBot';
+import CalorieSearch from '../../CalorieSearch';
 const initialState = { foods: []};
 
 const reducer = (state, action) => {
@@ -23,7 +24,7 @@ const Homepage = () => {
     const { foods } = state;
     const { searchTerm } = useParams();
     useEffect(() => {
-      const loadFoods = searchTerm ? search(searchTerm) : getall(); // if there is a search term, call search function
+      const loadFoods = searchTerm ? search(searchTerm) : getall(); 
       // else call getall function 
       loadFoods.then(foods => dispatch({ type: 'FOODS_LOADED', payload: foods }));
     }, [searchTerm]);
@@ -32,10 +33,13 @@ const Homepage = () => {
         <>
             <Search/>
             {foods.length === 0 && <NotFound/>}
-             <Thumbnails foods={foods} />
+            <Thumbnails foods={foods} />
+            <CalorieSearch />
+            <Footer />
+            <ChatBot />
+            
         </>
     );
 };
-
 
 export default Homepage;

@@ -23,15 +23,15 @@ export default function FoodPage() {
   }, [id]);
 
   return (
-    <>
+    <div className={classes.pageContainer}>
       {!food ? (
         <NotFound message="Food Not Found!" linkText="Back to HomePage" />
       ) : (
         <div className={classes.container}>
           <img
-          className={classes.image}
-          src={`/food/${food.imageUrl.split('/').pop()}`} 
-          alt={food.name}
+            className={classes.image}
+            src={`/food/${food.imageUrl.split('/').pop()}`} 
+            alt={food.name}
           />
           <div className={classes.details}>
             <div className={classes.header}>
@@ -52,15 +52,34 @@ export default function FoodPage() {
             <div className={classes.price}>
               <Price price={food.price} />
             </div>
+            <div className={classes.foodInfo}>
+              <div className={classes.infoItem}>
+                <span className={classes.infoIcon}>🕒</span>
+                <span>Delivery in 30-45 minutes</span>
+              </div>
+              <div className={classes.infoItem}>
+                <span className={classes.infoIcon}>🌡️</span>
+                <span>Served Hot & Fresh</span>
+              </div>
+              <div className={classes.infoItem}>
+                <span className={classes.infoIcon}>📦</span>
+                <span>Eco-friendly Packaging</span>
+              </div>
+              <div className={classes.infoItem}>
+                <span className={classes.infoIcon}>⭐</span>
+                <span>Quality Guaranteed</span>
+              </div>
+            </div>
             <button
               onClick={handleAddToCart}
               className={classes.foodbutton}
             >
               Add To Cart
             </button>
+            <p className={classes.freshNote}>* Prepared fresh to order</p>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

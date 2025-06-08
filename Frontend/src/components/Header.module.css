@@ -1,66 +1,113 @@
-.header{
-    background: white;
-    padding: 0;
-    border-bottom: 1px solid #e72929;
+.header {
+    background: #f9f1f1;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #e72929;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.header a{
-    color: #ef1313;
-}
-
-.header a:hover{
-    background: #e72929;
-    color: white;
-    cursor: pointer;
-}
-
-.container{
+.container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo{
-    font-size: 1.5em;
+.logo {
+    font-size: 1.8rem;
     font-weight: bold;
     color: #e72929;
-    padding: 1rem;
+    text-decoration: none;
 }
 
-.header ul{
+.logoHighlight {
+    color: #ff4d4d;
+}
+
+.navList {
     display: flex;
-    list-style-type: none;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+    margin: 0;
 }
 
-.header ul a{
-    padding: 1rem;
-    display: inline-block;
+.link {
+    color: #e72929;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-.menu_container{
-    position: relative;
-}
-.menu{
-    position: absolute;
-    z-index: 1001;
-    background: whitesmoke;
-    display: none;
-}
-
-.menu_container:hover .menu{
-    display: block;
-}
-
-.menu a{
-    width: 100%;
-    min-width: 8rem;
-}
-
-.cart_count{
-    background-color: rgb(172, 77, 77);
+.link:hover,
+.cart:hover {
+    background: #e72929;
     color: white;
+    border-radius: 5px;
+}
+
+.menuContainer {
+    position: relative;
+    color: #e72929;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.userName {
+    font-weight: 500;
+}
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 999;
+    flex-direction: column;
+}
+
+.menuContainer:hover .dropdownMenu {
+    display: flex;
+}
+
+.dropdownMenu a,
+.dropdownMenu span {
+    padding: 0.75rem 1rem;
+    color: #e72929;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.dropdownMenu a:hover,
+.dropdownMenu span:hover {
+    background: #ffe5e5;
+}
+
+.cart {
+    position: relative;
+    color: #e72929;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cartCount {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #aa2e2e;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 50%;
     padding: 0.2rem 0.5rem;
-    border-radius: 100rem;
-    font-size: 0.9rem;
+    min-width: 1.5rem;
+    text-align: center;
 }
