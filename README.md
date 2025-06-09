@@ -28,3 +28,5 @@ A dedicated food delivery platform tailored exclusively for hostel residents. Th
 - **APIs**: Spoonacular API for nutritional and food data
 - **Email Service**: Nodemailer for sending food requests and notifications
 - **Styling**: CSS Modules / Tailwind CSS (optional based on implementation)
+
+

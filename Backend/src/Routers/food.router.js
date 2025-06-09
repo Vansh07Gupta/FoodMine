@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import { FoodModel } from '../models/food.model.js';
 import handler from 'express-async-handler';
-
+import admin from '../middlewares/admin.mid.js';
 const foodRouter = Router();
 
 foodRouter.get('/', handler(async (req, res) => {
@@ -17,6 +17,16 @@ foodRouter.get(
 
     const foods = await FoodModel.find({ name: { $regex: searchRegex } });
     res.send(foods);
+  })
+);
+
+foodRouter.delete(
+  '/:foodId',
+  admin,
+  handler(async (req, res) => {
+    const { foodId } = req.params;
+    await FoodModel.deleteOne({ _id: foodId });
+    res.send();
   })
 );
 

@@ -11,6 +11,9 @@ import PaymentPage from "./components/Pages/Payment/PaymentPage";
 import OrderTrackPage from "./components/Pages/OrderTrack/OrderTrackPage";
 import ProfilePage from "./components/Pages/Profile/ProfilePage";
 import OrdersPage from "./components/Pages/Orders/OrdersPage";
+import Dashboard from "./components/Pages/Dashboard/Dashboard";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
+import FoodsAdminPage from "./components/Pages/FoodsAdmin/FoodsAdminPage";
 
 const AppRoutes = () => {
   return (
@@ -52,7 +55,18 @@ const AppRoutes = () => {
         <OrdersPage/>
       </AuthRoute>
       } />
-
+      <Route path="/dashboard" 
+      element={
+      <AuthRoute>
+        <Dashboard/>
+      </AuthRoute>
+      } />
+      <Route path="/admin/foods/:searchTerm?" 
+      element={
+      <AdminRoute>
+        <FoodsAdminPage/>
+      </AdminRoute>
+      } />
     </Routes>
   );
 };

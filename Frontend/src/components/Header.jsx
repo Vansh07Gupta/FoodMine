@@ -18,7 +18,10 @@ const Header = () => {
                     <ul className={classes.navList}>
                         {user ? (
                             <li className={classes.menuContainer}>
-                                <span className={classes.userName}>{user.name}</span>
+                            <Link to="/dashboard" className={classes.dashboardLink}>
+                            <span className={classes.userName}>{user.name}</span>
+                            </Link>
+
                                 <div className={classes.dropdownMenu}>
                                     <Link to="/profile">Profile</Link>
                                     <Link to="/orders">Orders</Link>
