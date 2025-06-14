@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './Header.module.css';
 import { Link } from 'react-router-dom';
-import { useCart } from '../hooks/useCart';
-import { useAuth } from '../hooks/useAuth';
+import { useCart } from '../hooks/useCart.jsx';
+import { useAuth } from '../hooks/useAuth.jsx';
 
 const Header = () => {
     const { user, logout } = useAuth();

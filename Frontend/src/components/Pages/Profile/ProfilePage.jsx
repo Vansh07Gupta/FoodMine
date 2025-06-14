@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth.jsx';
 import classes from './profilePage.module.css';
-import Title from '../../Title/Title';
-import Input from '../../Input/Input';
-import Button from '../../Button/Button';
-import ChangePassword from '../../ChangePassword/ChangePassword';
+import Title from '../../Title/Title.jsx';
+import Input from '../../Input/Input.jsx';
+import Button from '../../Button/Button.jsx';
+import ChangePassword from '../../ChangePassword/ChangePassword.jsx';
 import { toast } from 'react-toastify';
 
 export default function ProfilePage() {

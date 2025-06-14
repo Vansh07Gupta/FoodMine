@@ -1,7 +1,7 @@
 import React, { Children } from 'react';
-import { useAuth } from '../../hooks/useAuth';
-import NotFound from '../NotFound/NotFound';
-import AuthRoute from '../AuthRoute/AuthRoute';
+import { useAuth } from '../../hooks/useAuth.jsx';
+import NotFound from '../NotFound/NotFound.jsx';
+import AuthRoute from '../AuthRoute/AuthRoute.jsx';
 
 function AdminRoute({ children }) {
   const { user } = useAuth();

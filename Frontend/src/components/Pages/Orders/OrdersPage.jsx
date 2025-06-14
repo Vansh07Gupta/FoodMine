@@ -1,11 +1,11 @@
 import React, { useEffect, useReducer } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Title from '../../Title/Title';
-import DateTime from '../../DateTime/DateTime';
-import Price from '../../Price/Price';
-import NotFound from '../../NotFound/NotFound';
-import { getAll,getAllStatus } from '../../../Service/orderService';
-import classes from './ordersPage.module.css'
+import Title from '../../Title/Title.jsx';
+import DateTime from '../../DateTime/DateTime.jsx';
+import Price from '../../Price/Price.jsx';
+import NotFound from '../../NotFound/NotFound.jsx';
+import { getAll,getAllStatus } from '../../../Service/orderService.jsx';
+import classes from './OrdersPage.module.css'
 
 
 const initialState = {};

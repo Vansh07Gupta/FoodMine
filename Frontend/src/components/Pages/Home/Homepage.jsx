@@ -1,13 +1,14 @@
 import React, { useEffect, useReducer } from 'react';
-import { getall} from '../../../Service/FoodService';
-import Thumbnails from '../../Thumbnails/Thumbnails';
-import { search } from '../../../Service/FoodService';
+import { getall } from '../../../Service/FoodService.jsx';
+import Thumbnails from '../../Thumbnails/Thumbnails.jsx';
+import { search } from '../../../Service/FoodService.jsx';
 import { useParams } from 'react-router-dom';
-import Search from '../../Search/Search';
-import NotFound from '../../NotFound/NotFound';
-import Footer from '../../Footer/Footer';
-import ChatBot from '../../ChatBot';
-import CalorieSearch from '../../CalorieSearch';
+import Search from '../../Search/Search.jsx';
+import NotFound from '../../NotFound/NotFound.jsx';
+import Footer from '../../Footer/Footer.jsx';
+import ChatBot from '../../ChatBot.jsx';
+import CalorieSearch from '../../CalorieSearch.jsx';
+
 const initialState = { foods: []};
 
 const reducer = (state, action) => {

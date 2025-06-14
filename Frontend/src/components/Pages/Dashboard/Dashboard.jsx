@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth.jsx';
 import classes from './dashboard.module.css';
 import { Link } from 'react-router-dom';
 

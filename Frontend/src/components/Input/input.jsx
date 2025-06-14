@@ -1,6 +1,6 @@
 import React from 'react';
-import InputContainer from '../InputContainer/Inputcontainer';
-import classes from './input.module.css';
+import InputContainer from '../InputContainer/InputContainer.jsx';
+import classes from './Input.module.css';
 function Input(
   { label, type, defaultValue, onChange, onBlur, name, error },
   ref

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useSearchParams ,Link} from 'react-router-dom';
-import { useAuth } from '../../../hooks/useAuth';
-import Title from '../../Title/Title';
-import Input from '../../Input/Input'; 
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useAuth } from '../../../hooks/useAuth.jsx';
+import Title from '../../Title/Title.jsx';
+import Input from '../../Input/Input.jsx';
 import classes from './LoginPage.module.css';
-import { EMAIL } from '../../patterns/constant';
-import Button from '../../Button/Button';
+import { EMAIL } from '../../patterns/constant.jsx';
+import Button from '../../Button/Button.jsx';
 
 const LoginPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();

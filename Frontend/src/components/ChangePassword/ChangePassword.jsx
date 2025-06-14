@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../hooks/useAuth';
-import Title from '../Title/Title';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
+import { useAuth } from '../../hooks/useAuth.jsx';
+import Title from '../Title/Title.jsx';
+import Button from '../Button/Button.jsx';
+import Input from '../Input/Input.jsx';
 
 export default function ChangePassword() {
     const {

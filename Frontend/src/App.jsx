@@ -1,8 +1,8 @@
 import { useEffect } from "react"
-import AppRoutes from "./AppRoutes"
-import Header from "./components/Header"
-import { useLoading } from "./hooks/useLoading"
-import setLoadingInterceptor from "./interceptors/loadingInterceptors"
+import AppRoutes from "./AppRoutes.jsx"
+import Header from "./components/Header.jsx"
+import { useLoading } from "./hooks/useLoading.jsx"
+import setLoadingInterceptor from "./interceptors/loadingInterceptors.js"
 
 function App() {
 

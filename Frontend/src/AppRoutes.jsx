@@ -1,19 +1,19 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Homepage from "./components/Pages/Home/Homepage";
-import FoodPage from "./components/Pages/Food/FoodPage";
-import CartPage from "./components/Pages/Cart/CartPage";
-import LoginPage from "./components/Pages/Login/LoginPage";
-import Register from "./components/Pages/Register/Register";
-import AuthRoute from "./components/AuthRoute/AuthRoute";
-import CheckoutPage from "./components/Pages/Checkout/CheckoutPage";
-import PaymentPage from "./components/Pages/Payment/PaymentPage";
-import OrderTrackPage from "./components/Pages/OrderTrack/OrderTrackPage";
-import ProfilePage from "./components/Pages/Profile/ProfilePage";
-import OrdersPage from "./components/Pages/Orders/OrdersPage";
-import Dashboard from "./components/Pages/Dashboard/Dashboard";
-import AdminRoute from "./components/AdminRoute/AdminRoute";
-import FoodsAdminPage from "./components/Pages/FoodsAdmin/FoodsAdminPage";
+import Homepage from "./components/Pages/Home/Homepage.jsx";
+import FoodPage from "./components/Pages/Food/FoodPage.jsx";
+import CartPage from "./components/Pages/Cart/CartPage.jsx";
+import LoginPage from "./components/Pages/Login/LoginPage.jsx";
+import Register from "./components/Pages/Register/Register.jsx";
+import AuthRoute from "./components/AuthRoute/AuthRoute.jsx";
+import CheckoutPage from "./components/Pages/Checkout/CheckoutPage.jsx";
+import PaymentPage from "./components/Pages/Payment/PaymentPage.jsx";
+import OrderTrackPage from "./components/Pages/OrderTrack/OrderTrackPage.jsx";
+import ProfilePage from "./components/Pages/Profile/ProfilePage.jsx";
+import OrdersPage from "./components/Pages/Orders/OrdersPage.jsx";
+import Dashboard from "./components/Pages/Dashboard/Dashboard.jsx";
+import AdminRoute from "./components/AdminRoute/AdminRoute.jsx";
+import FoodsAdminPage from "./components/Pages/FoodsAdmin/FoodsAdminPage.jsx";
 
 const AppRoutes = () => {
   return (

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { trackOrderById } from '../../../Service/orderService';
-import NotFound from '../../NotFound/NotFound';
+import { trackOrderById } from '../../../Service/orderService.jsx';
+import NotFound from '../../NotFound/NotFound.jsx';
 import { useEffect } from 'react';
-import DateTime from '../../DateTime/DateTime';
-import OrderItemsList from '../../OrderItemsList/OrderItemsList';
-import Title from '../../Title/Title';
-import Map from '../../Map/Map';
+import DateTime from '../../DateTime/DateTime.jsx';
+import OrderItemsList from '../../OrderItemsList/OrderItemsList.jsx';
+import Title from '../../Title/Title.jsx';
+import Map from '../../Map/Map.jsx';
 import classes from "./orderTrackPage.module.css"
 
 const OrderTrackPage = () => {

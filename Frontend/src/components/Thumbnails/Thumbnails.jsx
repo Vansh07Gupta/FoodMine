@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Price from '../Price/Price';
-import classes from './thumbnails.module.css';
+import Price from '../Price/Price.jsx';
+import classes from './Thumbnails.module.css';
 export default function Thumbnails({ foods }) {
   return (
     <ul className={classes.list}>

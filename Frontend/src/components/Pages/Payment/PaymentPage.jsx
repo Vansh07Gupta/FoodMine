@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classes from './payment.module.css';
-import { getNewOrderForCurrentUser } from '../../../Service/orderService';
-import Title from '../../Title/Title';
-import OrderItemsList from '../../OrderItemsList/OrderItemsList';
-import Map from '../../Map/Map';
-import PayButtons from '../PayButtons/PayButtons';
+import { getNewOrderForCurrentUser } from '../../../Service/orderService.jsx';
+import Title from '../../Title/Title.jsx';
+import OrderItemsList from '../../OrderItemsList/OrderItemsList.jsx';
+import Map from '../../Map/Map.jsx';
+import PayButtons from '../PayButtons/PayButtons.jsx';
 import { toast } from 'react-toastify';
-import NotFound from '../../NotFound/NotFound';
+import NotFound from '../../NotFound/NotFound.jsx';
 
 export default function PaymentPage() {
   const [order, setOrder] = useState();

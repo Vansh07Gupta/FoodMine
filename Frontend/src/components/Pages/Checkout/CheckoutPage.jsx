@@ -1,17 +1,17 @@
 import React from 'react';
-import { useCart } from '../../../hooks/useCart';
-import { useAuth } from '../../../hooks/useAuth';
+import { useCart } from '../../../hooks/useCart.jsx';
+import { useAuth } from '../../../hooks/useAuth.jsx';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { createOrder } from '../../../Service/orderService';
+import { createOrder } from '../../../Service/orderService.jsx';
 import classes from './checkoutPage.module.css';
-import Title from '../../Title/Title';
-import Button from '../../Button/Button';
-import OrderItemsList from '../../OrderItemsList/OrderItemsList';
-import Map from '../../Map/Map';
-import Input from '../../Input/Input';
+import Title from '../../Title/Title.jsx';
+import Button from '../../Button/Button.jsx';
+import OrderItemsList from '../../OrderItemsList/OrderItemsList.jsx';
+import Map from '../../Map/Map.jsx';
+import Input from '../../Input/Input.jsx';
 export default function CheckoutPage() {
   const { cart } = useCart();
   const { user } = useAuth();

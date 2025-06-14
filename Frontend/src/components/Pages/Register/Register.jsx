@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import Input from '../../Input/Input';  // FIXED import
-import Title from '../../Title/Title';
+import Input from '../../Input/Input.jsx';
+import Title from '../../Title/Title.jsx';
 import classes from './Register.module.css';
-import Button from '../../Button/Button';
+import Button from '../../Button/Button.jsx';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../hooks/useAuth';
-import { EMAIL } from '../../patterns/constant';
+import { useAuth } from '../../../hooks/useAuth.jsx';
+import { EMAIL } from '../../patterns/constant.jsx';
 
 export default function Register() {
   const auth = useAuth();

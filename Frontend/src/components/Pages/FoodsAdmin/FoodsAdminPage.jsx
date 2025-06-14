@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import classes from './foodsAdminPage.module.css';
 import { Link, useParams } from 'react-router-dom';
-import { deleteById, getall, search } from '../../../Service/FoodService';
-import NotFound from '../../NotFound/NotFound';
-import Title from '../../Title/Title';
-import Search from '../../Search/Search';;
+import { deleteById, getall, search } from '../../../Service/FoodService.jsx';
+import NotFound from '../../NotFound/NotFound.jsx';
+import Title from '../../Title/Title.jsx';
+import Search from '../../Search/Search.jsx';
 import { toast } from 'react-toastify';
-import Price from '../../Price/Price';
+import Price from '../../Price/Price.jsx';
 
 export default function FoodsAdminPage() {
   const [foods, setFoods] = useState();

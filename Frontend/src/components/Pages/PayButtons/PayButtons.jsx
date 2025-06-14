@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../../hooks/useCart";
+import { useCart } from "../../../hooks/useCart.jsx";
 import { toast } from "react-toastify";
-import { pay } from "../../../Service/orderService";
+import { pay } from "../../../Service/orderService.jsx";
 import classes from "./payButton.module.css"
 
 const PayButtons = ({ order }) => {
