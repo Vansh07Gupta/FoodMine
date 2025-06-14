@@ -8,12 +8,17 @@ import orderRouter from './Routers/order.router.js'
 import foodBotRoutes from './Routers/foodBot.js';
 import foodCalorieRouter from './Routers/foodCalorieRouter.js';
 import  RequestbyEmail  from './Routers/RequestbyEmail.js';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
 
 const app = express(); 
 app.use(express.static('public'));
 
 import { dbconnect } from './config/database.config.js';
 dbconnect();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename); 
 
 app.use(express.json());
 
@@ -33,8 +38,14 @@ app.use('/api', foodCalorieRouter);
 
 app.use('/api', RequestbyEmail);
 
+const publicFolder = path.join(__dirname, 'public');
+app.use(express.static(publicFolder));
 
-const PORT = 5000;
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicFolder, 'index.html'));
+});
+
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log('listening on port ' + PORT);
 });

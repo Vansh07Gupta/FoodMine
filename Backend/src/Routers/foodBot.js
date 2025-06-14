@@ -21,7 +21,7 @@ router.post('/bot/recommend', async (req, res) => {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`;
 
     // **FIX #2: Correct request body for the Gemini API**
-    const systemInstruction = "You are a food recommendation assistant. Given a mood, suggest a dish or type of food that matches it, with a special emphasis on options available in Meerut.";
+    const systemInstruction = "You are a food recommendation assistant. Given a mood, suggest a dish or type of food that matches it, with a special emphasis on options available in Prayagraj.";
 
     const body = {
       "contents": [
