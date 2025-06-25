@@ -16,7 +16,7 @@ export default function DateTime({
     return <>Invalid Date</>; 
   }
 
-  const currentLocale = navigator.language || 'en-US'; // Default to 'en-US'
+  const currentLocale = navigator.language || 'en-US'; 
   
   const formattedDate = new Intl.DateTimeFormat(currentLocale, options).format(new Date(date));
 

@@ -28,7 +28,6 @@ router.post(
       },
     });
 
-    // Email content options
     const mailOptions = {
       from: process.env.USER_EMAIL, 
       to: process.env.ADMIN_EMAIL, 

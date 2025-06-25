@@ -20,8 +20,7 @@ router.post('/bot/recommend', async (req, res) => {
   try {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`;
 
-    // **FIX #2: Correct request body for the Gemini API**
-    const systemInstruction = "You are a food recommendation assistant. Given a mood, suggest a dish or type of food that matches it, with a special emphasis on options available in Prayagraj.";
+    const systemInstruction = "You are a food recommendation assistant. Given a mood, suggest a dish or type of food that matches it, with a special emphasis on options available in muzaffarnagar.";
 
     const body = {
       "contents": [
@@ -51,7 +50,6 @@ router.post('/bot/recommend', async (req, res) => {
       return res.status(response.status).json({ error: data.error?.message || 'Gemini API error' });
     }
 
-    // **FIX #3: Correctly parse the response from the Gemini API**
     const recommendation = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, no recommendation available at the moment.";
 
     res.json({ recommendation });

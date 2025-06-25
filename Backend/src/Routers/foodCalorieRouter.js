@@ -2,7 +2,6 @@ import express from 'express';
 const router = express.Router();
 import fetch from 'node-fetch';
 
-// Endpoint to search foods based on calorie input
 router.get('/searchByCalories', async (req, res) => {
   const { calories } = req.query;
   const API_KEY = process.env.SPOONACULAR_API_KEY;

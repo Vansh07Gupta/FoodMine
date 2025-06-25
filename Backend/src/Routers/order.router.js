@@ -40,11 +40,9 @@ router.get(
     const order = await getNewOrderForCurrentUser(req);
 
     if (!order) {
-      console.log("🚨 No new order found for user:", req.user?.id);
       return res.status(400).send({ message: "No new order found" });
     }
 
-    console.log("✅ Order found:", order);
     res.send(order);
   })
 );
@@ -58,7 +56,6 @@ router.put(
     const order = await getNewOrderForCurrentUser(req);
 
     if (!order) {
-      console.log("🚨 Order not found!");
       return res.status(400).send('Order Not Found!');
     }
 
@@ -120,7 +117,7 @@ const getNewOrderForCurrentUser = async (req) => {
   }).populate('user');
 
   if (!order) {
-    console.log("🚨 No order found for user:", req.user.id);
+    console.log(" No order found for user:", req.user.id);
   }
 
   return order;

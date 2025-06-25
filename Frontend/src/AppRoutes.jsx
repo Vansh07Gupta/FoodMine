@@ -14,6 +14,7 @@ import OrdersPage from "./components/Pages/Orders/OrdersPage.jsx";
 import Dashboard from "./components/Pages/Dashboard/Dashboard.jsx";
 import AdminRoute from "./components/AdminRoute/AdminRoute.jsx";
 import FoodsAdminPage from "./components/Pages/FoodsAdmin/FoodsAdminPage.jsx";
+import FoodEditPage from "./components/Pages/FoodEdit/FoodEditPage.jsx";
 
 const AppRoutes = () => {
   return (
@@ -65,6 +66,18 @@ const AppRoutes = () => {
       element={
       <AdminRoute>
         <FoodsAdminPage/>
+      </AdminRoute>
+      } />
+      <Route path="/admin/addFood" 
+      element={
+      <AdminRoute>
+        <FoodEditPage/>
+      </AdminRoute>
+      } />
+      <Route path="/admin/editFood/:foodId" 
+      element={
+      <AdminRoute>
+        <FoodEditPage/>
       </AdminRoute>
       } />
     </Routes>

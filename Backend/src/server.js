@@ -10,6 +10,7 @@ import foodCalorieRouter from './Routers/foodCalorieRouter.js';
 import  RequestbyEmail  from './Routers/RequestbyEmail.js';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
+import uploadRouter from './Routers/upload.js'; 
 
 const app = express(); 
 app.use(express.static('public'));
@@ -38,6 +39,8 @@ app.use('/api', foodBotRoutes);
 app.use('/api', foodCalorieRouter);
 
 app.use('/api', RequestbyEmail);
+app.use('/api', uploadRouter);
+
 
 const publicFolder = path.join(__dirname, 'public');
 app.use(express.static(publicFolder));

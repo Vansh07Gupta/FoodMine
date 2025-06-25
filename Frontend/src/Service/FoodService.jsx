@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/food"; 
+const BASE_URL = "http://localhost:5000/api/food";
 
 export const getall = async () => {
   const { data } = await axios.get(BASE_URL);
@@ -22,7 +22,7 @@ export const deleteById = async (foodId) => {
 };
 
 export const update = async (food) => {
-  await axios.put(BASE_URL, food);
+  await axios.put(`${BASE_URL}/${food._id}`, food);
 };
 
 export const add = async (food) => {

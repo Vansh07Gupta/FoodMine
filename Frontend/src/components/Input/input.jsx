@@ -1,6 +1,7 @@
 import React from 'react';
 import InputContainer from '../InputContainer/InputContainer.jsx';
-import classes from './Input.module.css';
+import classes from './input.module.css';
+
 function Input(
   { label, type, defaultValue, onChange, onBlur, name, error },
   ref
@@ -8,7 +9,6 @@ function Input(
   const getErrorMessage = () => {
     if (!error) return;
     if (error.message) return error.message;
-    //defaults
     switch (error.type) {
       case 'required':
         return 'This Field Is Required';

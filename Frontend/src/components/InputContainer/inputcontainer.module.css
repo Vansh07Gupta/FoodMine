@@ -1,21 +1,21 @@
 .container {
-    position: relative;
-    margin-bottom: 0.5rem;
-    border-radius: 0.7rem;
-    padding-top: 0.3rem;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .label {
-    display: inline-block;
-    margin-left: 0.5rem;
-    color: #5f5f5f;
-    font-size: 1rem;
-  }
-  
-  .content {
-    padding: 0 0.5rem;
-    height: 2.7rem;
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+}
