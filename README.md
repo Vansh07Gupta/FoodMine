@@ -29,4 +29,68 @@ A dedicated food delivery platform tailored exclusively for hostel residents. Th
 - **Email Service**: Nodemailer for sending food requests and notifications
 - **Styling**: CSS Modules / Tailwind CSS (optional based on implementation)
 
+---
+
+## Installation & Setup Guide
+
+### Prerequisites
+- Node.js (v16 or higher recommended)
+- npm (comes with Node.js)
+- MongoDB (local or cloud instance)
+
+### 1. Clone the Repository
+```sh
+git clone <your-repo-url>
+cd FoodMine
+```
+
+### 2. Backend Setup
+```sh
+cd Backend
+npm install
+```
+
+- Create a `.env` file in the `Backend` directory with the following variables:
+  ```env
+  MONGODB_URI=<your-mongodb-uri>
+  JWT_SECRET=<your-jwt-secret>
+  CLIENT_URL=http://localhost:5173
+  SPOONACULAR_API_KEY=<your-spoonacular-api-key>
+  GEMINI_API_KEY=<your-gemini-api-key>
+  RAZORPAY_KEY_ID=<your-razorpay-key-id>
+  RAZORPAY_KEY_SECRET=<your-razorpay-key-secret>
+  ```
+
+- Start the backend server:
+```sh
+npm start
+```
+
+### 3. Frontend Setup
+```sh
+cd ../Frontend
+npm install
+```
+
+
+- Start the frontend development server:
+```sh
+npm run dev
+```
+
+### 4. Build for Production
+- To build the frontend and copy the output to the backend's public directory:
+```sh
+npm run build
+npm run postbuild
+```
+
+### 5. Access the App
+- Frontend: [http://localhost:5173](http://localhost:5173)
+- Backend API: [http://localhost:5000/api](http://localhost:5000/api)
+
+---
+
+For deployment, ensure all environment variables are set on your hosting platform and that both `Backend` and `Frontend` dependencies are installed and built as described above.
+
 
