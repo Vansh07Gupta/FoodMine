@@ -1,5 +1,7 @@
 # Hostel Food Delivery Website
 
+[Live Demo (Production)](https://foodmine-zjz6.onrender.com)
+
 A dedicated food delivery platform tailored exclusively for hostel residents. This web application enables users to browse menus from various food vendors, place orders seamlessly, and get meals delivered directly within their hostel premises. The platform aims to provide a hassle-free, convenient, and user-friendly food ordering experience for students and residents.
 
 ---
