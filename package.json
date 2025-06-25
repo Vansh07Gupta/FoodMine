@@ -6,14 +6,14 @@
   "scripts": {
     "start": "cd backend && npm start",
     "build": "cd frontend && npm install && npm run build",
-    "postbuild": "xcopy /E /Y /I frontend\\dist backend\\src\\public",
+    "postbuild": "cp -r frontend/dist/* backend/src/public/",
     "dev": "concurrently \"cd backend && npm start\" \"cd frontend && npm run dev\""
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "cpx": "^1.5.0"
   }
 }
