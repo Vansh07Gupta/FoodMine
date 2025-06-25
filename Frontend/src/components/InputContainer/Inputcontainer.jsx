@@ -1,4 +1,4 @@
-import classes from './InputContainer.module.css';
+import classes from './inputContainer.module.css';
 
 export default function InputContainer({ label, bgColor, children }) {
   return (
