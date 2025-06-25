@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cd Backend && npm start",
     "build": "cd Frontend && npm install && npm run build",
+    "postinstall" : "cd Backend && npm install",
     "postbuild": "cp -r Frontend/dist/* Backend/src/public/",
     "dev": "concurrently \"cd Backend && npm start\" \"cd Frontend && npm run dev\""
   },
