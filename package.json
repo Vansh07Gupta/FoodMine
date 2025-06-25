@@ -4,10 +4,10 @@
   "description": "A dedicated food delivery platform tailored exclusively for hostel residents. This web application enables users to browse menus from various food vendors, place orders seamlessly, and get meals delivered directly within their hostel premises. The platform aims to provide a hassle-free, convenient, and user-friendly food ordering experience for students and residents.",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && npm start",
-    "build": "cd frontend && npm install && npm run build",
-    "postbuild": "cp -r frontend/dist/* backend/src/public/",
-    "dev": "concurrently \"cd backend && npm start\" \"cd frontend && npm run dev\""
+    "start": "cd Backend && npm start",
+    "build": "cd Frontend && npm install && npm run build",
+    "postbuild": "cp -r Frontend/dist/* Backend/src/public/",
+    "dev": "concurrently \"cd Backend && npm start\" \"cd Frontend && npm run dev\""
   },
   "keywords": [],
   "author": "",
