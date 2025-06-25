@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { add, getById,update } from '../../../Service/FoodService';
 import Title from '../../Title/Title';
-import InputContainer from '../../InputContainer/Inputcontainer';
+import InputContainer from '../../InputContainer/InputContainer.jsx';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 import { uploadImage } from '../../../Service/uploadService';
